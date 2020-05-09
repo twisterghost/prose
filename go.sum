@@ -11,6 +11,10 @@ cloud.google.com/go/firestore v1.1.0/go.mod h1:ulACoGHTpvq5r8rxGJ4ddJZBZqakUQqCl
 cloud.google.com/go/pubsub v1.0.1/go.mod h1:R0Gpsv3s54REJCy4fxDixWD93lHJMoZTyQ2kNxGRt3I=
 cloud.google.com/go/storage v1.0.0/go.mod h1:IhtSnM/ZTZV8YYJWCY8RULGVqBDmpoyjwiyrjsg+URw=
 dmitri.shuralyov.com/gpu/mtl v0.0.0-20190408044501-666a987793e9/go.mod h1:H6x//7gZCb22OMCxBHrMx7a5I7Hp++hsVxbQ4BYO7hU=
+git.sr.ht/~twisterghost/postfile v0.0.0-20200512161621-32b471e05f33 h1:UIn2RW6d2XwyqeMn2yTPNeS94fTMt10L64MvnS1rY88=
+git.sr.ht/~twisterghost/postfile v0.0.0-20200512161621-32b471e05f33/go.mod h1:13jOpCTu1bQWC34e8fcQaE90OVPZAbUR9glbKNweock=
+git.sr.ht/~twisterghost/prose v0.0.0-20200512220611-79c964f41d7a h1:RVBSy/F+zsfu3tzDzQVT8SYQeuaeLWJm6TXtxFB9MuQ=
+git.sr.ht/~twisterghost/prose v0.0.0-20200512220611-79c964f41d7a/go.mod h1:XrsmzgsoRGm4y4/+WbEyWeLp80McrEWIS4nSo0HxcYg=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
