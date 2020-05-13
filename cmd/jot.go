@@ -20,7 +20,7 @@ func jot(args []string) {
 
 	prosefile.Entries = append(prosefile.Entries, newEntry)
 
-	loader.WriteProsefile(loader.SerializeProsefile(prosefile))
+	loader.WriteProsefile(prosefile)
 
 	fmt.Println("Message saved:", message)
 }

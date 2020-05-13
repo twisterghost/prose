@@ -18,7 +18,7 @@ func format() {
 		os.Exit(1)
 	}
 
-	loader.WriteProsefile(loader.SerializeProsefile(prosefile))
+	loader.WriteProsefile(prosefile)
 	fmt.Println("Prosefile at", loader.GetProsefilePath(), "formatted.")
 }
 

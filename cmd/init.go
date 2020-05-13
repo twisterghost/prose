@@ -24,7 +24,7 @@ func initProsefile() {
 		Entries:  []prose.Entry{},
 	}
 
-	loader.WriteProsefile(loader.SerializeProsefile(initialPostfile))
+	loader.WriteProsefile(initialPostfile)
 	fmt.Println("Prosefile initialized at", loader.GetProsefilePath())
 }
 

@@ -7,6 +7,7 @@ import (
 	"github.com/twisterghost/prose/loader"
 
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
 func send() {
@@ -20,7 +21,8 @@ func send() {
 		os.Exit(1)
 	}
 
-	fmt.Printf(loader.SerializeProsefile(prosefile))
+	pretty := viper.GetBool("pretty")
+	fmt.Printf(prosefile.Serialize(pretty))
 }
 
 // sendCmd represents the send command

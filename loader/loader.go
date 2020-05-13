@@ -51,27 +51,16 @@ func LoadProsefile() prose.Prosefile {
 	return obj
 }
 
-func WriteProsefile(serialized string) {
+// TODO: Report errors instead of printing them here
+func WriteProsefile(prosefile prose.Prosefile) {
+	pretty := viper.GetBool("pretty")
+	serialized := prosefile.Serialize(pretty)
 	bytes := []byte(serialized)
 	err := ioutil.WriteFile(GetProsefilePath(), bytes, 0644)
 	if err != nil {
 		fmt.Println("Error writing prosefile at", GetProsefilePath())
 		fmt.Println(err)
 	}
-}
-
-// TODO report errors
-// TODO serialization should probably live in prose and be passed pretty as a flag from here
-func SerializeProsefile(prosefile prose.Prosefile) string {
-	pretty := viper.GetBool("pretty")
-	var outstr []byte
-	if pretty {
-		outstr, _ = json.MarshalIndent(prosefile, "", "  ")
-	} else {
-		outstr, _ = json.Marshal(prosefile)
-	}
-
-	return string(outstr)
 }
 
 func FileExists(path string) bool {

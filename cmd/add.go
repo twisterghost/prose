@@ -36,7 +36,7 @@ func addEntry(path string) {
 	newEntry.Title = Title
 	prosefile.Entries = append(prosefile.Entries, newEntry)
 
-	loader.WriteProsefile(loader.SerializeProsefile(prosefile))
+	loader.WriteProsefile(prosefile)
 
 	fmt.Println("Entry added:", string(message))
 }

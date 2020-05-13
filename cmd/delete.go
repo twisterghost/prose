@@ -12,7 +12,7 @@ func deletePost(delId string) {
 	prosefile := loader.LoadProsefile()
 	prosefile.Entries = prose.RemoveEntryById(prosefile.Entries, delId)
 
-	loader.WriteProsefile(loader.SerializeProsefile(prosefile))
+	loader.WriteProsefile(prosefile)
 
 	fmt.Println("Post deleted:", delId)
 }
