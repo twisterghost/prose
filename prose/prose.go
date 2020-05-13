@@ -30,16 +30,14 @@ func remove(entries []Entry, s int) []Entry {
 	return append(entries[:s], entries[s+1:]...)
 }
 
-func FormatEntry(entry Entry) Entry {
-	if entry.Time.IsZero() {
-		entry.Time = time.Now()
+func (e *Entry) Format() {
+	if e.Time.IsZero() {
+		e.Time = time.Now()
 	}
 
-	if entry.Id == "" {
-		entry.Id = uuid.New().String()
+	if e.Id == "" {
+		e.Id = uuid.New().String()
 	}
-
-	return entry
 }
 
 func NewBasicEntry(content string, author string) Entry {
@@ -75,7 +73,7 @@ func (p *Prosefile) Format() error {
 
 	// Format posts and ensure no duplicate IDs
 	for index, entry := range p.Entries {
-		p.Entries[index] = FormatEntry(entry)
+		p.Entries[index].Format()
 
 		_, ok := seenIds[entry.Id]
 		if ok {
