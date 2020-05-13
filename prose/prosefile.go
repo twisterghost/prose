@@ -6,19 +6,7 @@ import (
 	"fmt"
 	"os"
 	"sort"
-	"time"
-
-	"github.com/google/uuid"
 )
-
-type Entry struct {
-	Title    string            `json:"title"`
-	Body     string            `json:"body"`
-	Id       string            `json:"id"`
-	Author   string            `json:"author"`
-	Time     time.Time         `json:"time"`
-	Metadata map[string]string `json:"metadata"`
-}
 
 type Prosefile struct {
 	Filetype string  `json:"filetype"`
@@ -30,27 +18,7 @@ func remove(entries []Entry, s int) []Entry {
 	return append(entries[:s], entries[s+1:]...)
 }
 
-func (e *Entry) Format() {
-	if e.Time.IsZero() {
-		e.Time = time.Now()
-	}
-
-	if e.Id == "" {
-		e.Id = uuid.New().String()
-	}
-}
-
-func NewBasicEntry(content string, author string) Entry {
-	return Entry{
-		Title:    "",
-		Body:     content,
-		Id:       uuid.New().String(),
-		Author:   author,
-		Time:     time.Now(),
-		Metadata: make(map[string]string),
-	}
-}
-
+// TODO: return an error if need be instead of exiting
 func RemoveEntryById(entries []Entry, id string) []Entry {
 	removeIndex := -1
 	for i := range entries {
