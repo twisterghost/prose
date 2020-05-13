@@ -2,8 +2,8 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 
-	"github.com/twisterghost/prose/lib"
 	"github.com/twisterghost/prose/loader"
 
 	"github.com/spf13/cobra"
@@ -12,8 +12,12 @@ import (
 func send() {
 	prosefile := loader.LoadProsefile()
 
-	for index, entry := range prosefile.Entries {
-		prosefile.Entries[index] = lib.FormatEntry(entry)
+	err := prosefile.Format()
+
+	if err != nil {
+		fmt.Println("Error formatting file")
+		fmt.Println(err)
+		os.Exit(1)
 	}
 
 	fmt.Printf(loader.SerializeProsefile(prosefile))

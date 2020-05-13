@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 
-	"github.com/twisterghost/prose/lib"
 	"github.com/twisterghost/prose/loader"
+	"github.com/twisterghost/prose/prose"
 )
 
 func deletePost(delId string) {
 	prosefile := loader.LoadProsefile()
-	prosefile.Entries = lib.RemoveEntryById(prosefile.Entries, delId)
+	prosefile.Entries = prose.RemoveEntryById(prosefile.Entries, delId)
 
 	loader.WriteProsefile(loader.SerializeProsefile(prosefile))
 

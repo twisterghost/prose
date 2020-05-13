@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/twisterghost/prose/lib"
 	"github.com/twisterghost/prose/loader"
 
 	"github.com/spf13/cobra"
@@ -12,14 +11,14 @@ import (
 
 func format() {
 	prosefile := loader.LoadProsefile()
-	formatted, err := lib.Format(prosefile)
+	err := prosefile.Format()
 
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
 
-	loader.WriteProsefile(loader.SerializeProsefile(formatted))
+	loader.WriteProsefile(loader.SerializeProsefile(prosefile))
 	fmt.Println("Prosefile at", loader.GetProsefilePath(), "formatted.")
 }
 

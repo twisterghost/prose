@@ -7,7 +7,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/twisterghost/prose/lib"
+	"github.com/twisterghost/prose/prose"
 
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/viper"
@@ -30,7 +30,7 @@ func GetProsefilePath() string {
 	return prosefilePath
 }
 
-func LoadProsefile() lib.Prosefile {
+func LoadProsefile() prose.Prosefile {
 	prosefilePath := GetProsefilePath()
 	data, err := ioutil.ReadFile(prosefilePath)
 	if err != nil {
@@ -39,7 +39,7 @@ func LoadProsefile() lib.Prosefile {
 		os.Exit(1)
 	}
 
-	var obj lib.Prosefile
+	var obj prose.Prosefile
 	err = json.Unmarshal(data, &obj)
 	if err != nil {
 		fmt.Println("Error when parsing prosefile json.")
@@ -61,8 +61,8 @@ func WriteProsefile(serialized string) {
 }
 
 // TODO report errors
-// TODO serialization should probably live in lib and be passed pretty as a flag from here
-func SerializeProsefile(prosefile lib.Prosefile) string {
+// TODO serialization should probably live in prose and be passed pretty as a flag from here
+func SerializeProsefile(prosefile prose.Prosefile) string {
 	pretty := viper.GetBool("pretty")
 	var outstr []byte
 	if pretty {

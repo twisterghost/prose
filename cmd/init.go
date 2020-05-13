@@ -6,8 +6,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/twisterghost/prose/lib"
 	"github.com/twisterghost/prose/loader"
+	"github.com/twisterghost/prose/prose"
 )
 
 var force bool
@@ -18,10 +18,10 @@ func initProsefile() {
 		os.Exit(0)
 	}
 
-	initialPostfile := lib.Prosefile{
+	initialPostfile := prose.Prosefile{
 		Filetype: "prosefile",
 		Version:  "0.0.1",
-		Entries:  []lib.Entry{},
+		Entries:  []prose.Entry{},
 	}
 
 	loader.WriteProsefile(loader.SerializeProsefile(initialPostfile))

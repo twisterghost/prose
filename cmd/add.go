@@ -8,8 +8,8 @@ import (
 
 	"github.com/spf13/viper"
 
-	"github.com/twisterghost/prose/lib"
 	"github.com/twisterghost/prose/loader"
+	"github.com/twisterghost/prose/prose"
 )
 
 var Title string
@@ -32,7 +32,7 @@ func addEntry(path string) {
 
 	prosefile := loader.LoadProsefile()
 
-	newEntry := lib.NewBasicEntry(string(message), author)
+	newEntry := prose.NewBasicEntry(string(message), author)
 	newEntry.Title = Title
 	prosefile.Entries = append(prosefile.Entries, newEntry)
 

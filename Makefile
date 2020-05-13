@@ -1,5 +1,8 @@
 default:
-	go build -o prose main.go
+	go build -o bin/prose main.go
+
+clean:
+	rm -rf bin
 
 install:
-	install prose /usr/local/bin
+	install bin/prose /usr/local/bin

@@ -7,8 +7,8 @@ import (
 
 	"github.com/spf13/viper"
 
-	"github.com/twisterghost/prose/lib"
 	"github.com/twisterghost/prose/loader"
+	"github.com/twisterghost/prose/prose"
 )
 
 func jot(args []string) {
@@ -16,7 +16,7 @@ func jot(args []string) {
 	author := viper.GetString("author")
 
 	prosefile := loader.LoadProsefile()
-	newEntry := lib.NewBasicEntry(message, author)
+	newEntry := prose.NewBasicEntry(message, author)
 
 	prosefile.Entries = append(prosefile.Entries, newEntry)
 
